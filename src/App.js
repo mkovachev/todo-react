@@ -19,7 +19,7 @@ function App() {
 
   function toggleTodo(id) {
     const newTodos = [...todos]
-    const todo = newTodos.find(todo => todo.iod === id)
+    const todo = newTodos.find(todo => todo.id === id)
     todo.complete = !todo.complete
     setTodos(newTodos)
   }
@@ -38,7 +38,7 @@ function App() {
       <input ref={todoNameRef} type="text" />
       <button onClick={handleAddTodo}>Add Todo</button>
       <button>Clear Completed</button>
-      <button>0 left to do</button>
+      <div>{todos.filter(todo => !todo.complete).length} left do to</div>
     </>
   )
 }
